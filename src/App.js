@@ -16,7 +16,7 @@ function App() {
     <div className= "App">
       <div className="Banner">
         <div className="center-image">
-          <a href="https://merqueo.com"><img
+          <a href="https://es-la.facebook.com/RappiColombia/"><img
             src={LogoBanner}
             alt={LogoBanner}
             className="imageBanner"
@@ -25,7 +25,7 @@ function App() {
         </div>
         <nav className="navbar navbar-dark">
           <NavLink to="/Tienda" className="navbar-brand"><p className="ItemHover">Tienda</p></NavLink>
-          <NavLink to="/Carro" className="navbar-brand" activeClassName="active"><p className="ItemHover">Carrito</p></NavLink>
+          <NavLink to="/Carro" className="navbar-brand" ><p className="ItemHover">Carrito</p></NavLink>
                    
         </nav>  
       </div>

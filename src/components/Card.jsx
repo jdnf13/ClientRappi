@@ -15,12 +15,7 @@ const Card  =   (props)  =>  {
         width: "20rem",
         height: "50rem",
         maxHeight: "20%",
-        background: "#000000",  /* fallback for old browsers */
-        background: "-webkit-linear-gradient(to bottom, #434343, #000000)",  /* Chrome 10-25, Safari 5.1-6 */
-        background: "linear-gradient(to bottom, #434343, #000000)", 
-        border: "0px solid #131212",
-        borderRadius: "15px",
-        //webkitBorderRadius:"15px",
+        background: "#7E6E6B",  
         padding: "-1px",
         backgroundSize:"cover"
     }
@@ -93,8 +88,8 @@ return(
                     </h5>
                     <h3 className="Precios">$ {precioMostrar}</h3>
                     <p className="Parrafos">Añadir al Carrito</p>
-                    <a className="btn btn-dark" onClick={onClickAñadir}>Añadir</a>
-                    <a className="btn btn-dark" onClick={onClickQuitar}>Quitar</a>
+                    <a className="btn btn-dark" href='./' onClick={onClickAñadir}>Añadir</a>
+                    <a className="btn btn-dark" href='./' onClick={onClickQuitar}>Quitar</a>
                     <div className="container">
                         <p className="cantidad">{cant}</p>
                     </div>

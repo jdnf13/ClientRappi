@@ -3,13 +3,13 @@
 
 h1, h2, h3, h4, h5, h5, p, .navbar, .input {
     font-family: 'Kaushan Script', cursive;
-    color: white
+    color: rgb(9, 9, 9)
   }
 /*Estilos de todo el body*/
 .App{
     background: #bb7c7c;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, hsl(122, 87%, 24%), hsl(140, 81%, 24%));  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, hsl(122, 87%, 24%), hsl(140, 81%, 24%)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -webkit-linear-gradient(to bottom, hsl(127, 18%, 91%), hsl(3, 53%, 74%));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, hsl(127, 18%, 91%), hsl(3, 53%, 74%)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
 }
 /*Estilos de la imagen logo*/  
@@ -26,8 +26,8 @@ h1, h2, h3, h4, h5, h5, p, .navbar, .input {
     margin-bottom: 3%;
 }
 .ItemHover{
-    color: hsl(122, 52%, 90%);
-    background-color: #47434344;
+    color: hsl(120, 3%, 7%);
+    background-color: #f3d1d144;
 }
 .ItemHoverInicio{
     font-size: 1.3rem;
@@ -36,11 +36,11 @@ h1, h2, h3, h4, h5, h5, p, .navbar, .input {
 }
 .active{
     color: hsl(120, 56%, 5%);
-    background-color: #47434344;
+    
 }
 .ItemHover:hover{
     text-decoration: none;
-    color: hsl(120, 56%, 5%);
+    color: hsl(0, 0%, 1%);
     font-weight: bold;
 }
 .ItemHoverInicio:hover{
@@ -116,13 +116,10 @@ h1, h2, h3, h4, h5, h5, p, .navbar, .input {
    }
 /**Estilos Para las tarjetas de productos*/
 .card{
-    max-height: 600px;
+    max-height: 30px;
 }
 .card-img-top{
     width: 100%;
-    height: auto;
-    border: 1px solid;
-    border-radius: 9px;
     padding: 0px;
 }
 @supports(object-fit: cover){

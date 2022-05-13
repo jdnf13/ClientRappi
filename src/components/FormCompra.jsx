@@ -1,4 +1,4 @@
-import React,{Component, Fragment, useState} from 'react';
+import React,{Fragment, useState} from 'react';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import {NavLink} from 'react-router-dom';
 import md5 from 'md5';
@@ -25,7 +25,7 @@ const FormCompra  = ()  => {
     let infoPedido =    localStorage.getItem('pedidoCompleto');
     let pedido  =   JSON.parse(infoPedido);  
     let amount = pedido.totalPagar; 
-    let signature = md5("ME7cLWx8UCl5f7kZo592rk0Bug"+"~"+898269+"~"+referenciaPago+"~"+amount+"~"+"COP");
+    let signature = md5(`ME7cLWx8UCl5f7kZo592rk0Bug~${898269}~${referenciaPago}~${amount}~COP`);
     let pedidoLength = pedido.pedido.length;
     let itemPedido = 0;
     let descripcionPedido = [];
@@ -79,37 +79,20 @@ const FormCompra  = ()  => {
         let selected    =   combo.options[combo.selectedIndex].text;
         //////////////////Creamos las variables para enviar en el array data        
         let buyerFullName = ''
-        let inputApellidos= '';
-        let shippingAddress   =  '';
-        let inputDireccionDetalle      =   '';
-        let telephone   =   '';
-        let buyerEmail  =   '';
-        let inputDepartamento    =   '';
-        let shippingCity  =   '';
-        let description    =   '';
-        let referencecode = 0;
-         
-        ////////////////////Creamos las variables para validar campos////////////
-        let nombre = '';
-        let apellido =  '';
-        let direccion = '';
-        let barrio = '';
-        let telefonos   =  '';
-        let correo  =   '';
-        let departamento =  '';
-        let ciudad  =  '';
-        let infoCliente = [
-            buyerFullName = document.getElementById("buyerFullName").value,
-            inputApellidos =  document.getElementById("inputApellidos").value,
-            shippingAddress = document.getElementById("shippingAddress").value,
-            inputDireccionDetalle = document.getElementById("inputDireccionDetalle").value,
-            telephone   =   document.getElementById("telephone").value,
-            buyerEmail  =   document.getElementById("buyerEmail").value,
-            inputDepartamento = selected,
-            shippingCity  =   document.getElementById("shippingCity").value,
-            description = document.getElementById("description").value,
-            referencecode = document.getElementById("referenceCode").value,
-        ]
+       
+        
+        let infoCliente = [];
+        infoCliente["buyerFullName"] = document.getElementById("buyerFullName").value;
+        infoCliente["inputApellidos"] =  document.getElementById("inputApellidos").value;
+        infoCliente["shippingAddress"] = document.getElementById("shippingAddress").value;
+        infoCliente["inputDireccionDetalle"] = document.getElementById("inputDireccionDetalle").value;
+        infoCliente["telephone"]   =   document.getElementById("telephone").value;
+        infoCliente["buyerEmail"]  =   document.getElementById("buyerEmail").value;
+        infoCliente["inputDepartamento"] = selected;
+        infoCliente["shippingCity"]  =   document.getElementById("shippingCity").value;
+        infoCliente["description"] = document.getElementById("description").value;
+        infoCliente["referencecode"] = document.getElementById("referenceCode").value;
+
         let infoPedido =    localStorage.getItem('pedidoCompleto');
         let pedido  =   JSON.parse(infoPedido);
         let infoClienteEndpiont = {
@@ -126,16 +109,15 @@ const FormCompra  = ()  => {
             totalpedido: pedido.totalPagar.toString()
         }
         //array que se usara para mostrar mensaje de validacion de campos
-        let infoClienteText=    [
-            nombre = document.getElementById("buyerFullName").placeholder,
-            apellido =  document.getElementById("inputApellidos").placeholder,
-            direccion = document.getElementById("shippingAddress").placeholder,
-            barrio = document.getElementById("inputDireccionDetalle").placeholder,
-            telefonos   =   document.getElementById("telephone").placeholder,
-            correo  =   document.getElementById("buyerEmail").placeholder,
-            departamento =  document.getElementById("inputDepartamento").value,
-            ciudad  =   document.getElementById("shippingCity").value,
-        ];
+        let infoClienteText=    [];
+        infoClienteText["nombre"] = document.getElementById("buyerFullName").placeholder;
+        infoClienteText["apellido"] =  document.getElementById("inputApellidos").placeholder;
+        infoClienteText["direccion"] = document.getElementById("shippingAddress").placeholder;
+        infoClienteText["barrio"] = document.getElementById("inputDireccionDetalle").placeholder;
+        infoClienteText["telefonos"]   =   document.getElementById("telephone").placeholder;
+        infoClienteText["correo"]  =   document.getElementById("buyerEmail").placeholder;
+        infoClienteText["departamento"] =  document.getElementById("inputDepartamento").value;
+        infoClienteText["ciudad"]  =   document.getElementById("shippingCity").value;
         let validacion = true;
         let itemValidar =   0;
         let arrayLength = infoCliente.length;       
@@ -146,7 +128,7 @@ const FormCompra  = ()  => {
             }
         }
         if(validacion){
-        alert('¡' + 'Hola ' +  buyerFullName +'! ' + '\nTu número de pedido es: ' + referenciaPago);
+        alert(`¡Hola ${buyerFullName}! Tu número de pedido es:${referenciaPago}`);
         
         let data=    infoClienteEndpiont;
         /////////////////Limpiamos el localStorage////////////////////////
@@ -267,8 +249,8 @@ const FormCompra  = ()  => {
                                 <input key="input8" name="currency" value="COP" type="hidden" className="form-control"></input>
                                 <input key="input9" name="tax" value={0} type="hidden" className="form-control"></input>
                                 <input key="input10" name="taxReturnBase" value = {0} type="hidden" className="form-control"></input>
-                                <input key="input11" name="responseUrl"    type="hidden"  value="https://merqueo.com/"></input>
-                                <input key="input12" name="confirmationUrl"    type="hidden"  value="https://merqueo.com/"></input>
+                                <input key="input11" name="responseUrl"    type="hidden"  value="https://www.rappi.com.co/"></input>
+                                <input key="input12" name="confirmationUrl"    type="hidden"  value="https://www.rappi.com.co/"></input>
                                 <input key="input13" name="shippingCountry" value="CO" type="hidden" className="form-control"></input>
                                 <input key="input14" name="signature" value={signature} type="hidden" className="form-control"></input>
 

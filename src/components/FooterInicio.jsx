@@ -6,8 +6,8 @@ const FooterInicio    =   ()  =>  {
         <Fragment>
             <footer>
                 <div className="footer-copyright text-center py-3">
-                    <p>Mercado</p>
-                    <p className="copy"><a className="credit" href='https://merqueo.com'>www.merqueo.com</a></p>
+                    <p>Compra en Linea</p>
+                    <p className="copy"><a className="credit" href='https://www.rappi.com.co/'>https://www.rappi.com.co/</a></p>
                 </div>
             </footer>
         </Fragment>

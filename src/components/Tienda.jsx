@@ -11,6 +11,8 @@ const Tienda    =   ()  =>  {
     /////////////////////////////////////////////////////////////////////////////////////////////
     //Se usa el State del componente add, para importar el evento desde Card,
     //De esta forma, se muestra el numero de items en el carrito
+    const jsonData= require('../data/recursos/products.json');
+
     let recuperarArray = localStorage.getItem('articulos');
     let transforArray   =   [];
     let items = 0;
@@ -96,9 +98,9 @@ const Tienda    =   ()  =>  {
  
       const getDataService = async  ()  =>  {
           ///////////////////Funcion que consume el API////////////////////
-          const data   =    await   fetch('https://run.mocky.io/v3/729fdd53-f365-49b4-bd55-f7e10bcc9a4b')
-          const productos = await data.json();  
-          renderCard(productos.data) //Llamamos la funcion ue renderiza las card              
+          const data   =    jsonData;
+          //console.log('Data desde json',data); 
+          renderCard(data) //Llamamos la funcion ue renderiza las card              
       }
 
       const renderCard = (productos) =>  {
@@ -107,14 +109,14 @@ const Tienda    =   ()  =>  {
         for(let item    =    0; item     <   productos.length; item++){
             
             CardItem    =    [
-                <div  className="col-lg" key = {productos[item].attributes.store_id}>
+                <div  className="col-lg" key = {productos[item].id}>
                     
                     <Card  
                         key         =   {productos[item].id}                             
                         id          =   {productos[item].id}
-                        nProducto   =   {productos[item].attributes.name}
-                        pProducto   =   {productos[item].attributes.price}
-                        imgProducto =   {productos[item].attributes.image_large_url}
+                        nProducto   =   {productos[item].name}
+                        pProducto   =   {productos[item].price}
+                        imgProducto =   {productos[item].image}
                         onClick     =   {añadirItem}
                         onClickRest =   {quitarItem}
                     />       
